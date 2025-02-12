@@ -1,0 +1,33 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0px;
+    background-color: #363636;
+
+
+    color: whitesmoke;
+    font-family: Roboto;
+}
+
+.task-form {
+    display: flex;
+    border: 1px solid white;
+    justify-content: center;
+}
+
+.task-form form {
+    border: 2px solid red;
+    display: flex;
+    flex-direction: row;
+    align-content: space-around;
+}
+
+
+.task-list {
+    border: 1px solid white;
+}
+
+
+.App h1{
+    text-align: center;
+}
