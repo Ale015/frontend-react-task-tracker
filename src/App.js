@@ -79,6 +79,8 @@ function App() {
   }
 
   const updateTaskStatus = async (taskId, newStatus) => {
+    console.log(`Chamando updateTaskStatus para ID: ${taskId}, Novo Status: ${newStatus}`);
+
     try {
       const response = await fetch(`${API_URL}/tasks/${taskId}`, {
         method: "PATCH",

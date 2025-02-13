@@ -8,18 +8,26 @@ const TaskBoard = ({tasks, addTask, deleteTask, updateTaskStatus, openTaskDetail
     const [description, setDescription] = useState("");
 
     const handleDragStart = (e, taskId) => {
+        console.log("Iniciando drag para a tarefa ID:", taskId);
         e.dataTransfer.setData("taskId", taskId);
     };
 
     const handleDrop = (e, newStatus) => {
         e.preventDefault();
 
-        const taskId = e.dataTransfer.getData("taskId");
-        updateTaskStatus(taskId, newStatus)
+        const taskId = parseInt(e.dataTransfer.getData("taskId"));
+
+        console.log(`Soltando a tarefa ID: ${taskId} para status: ${newStatus}`);
+
+        if(taskId){
+            updateTaskStatus(taskId, newStatus)
+        }
+        
     }
 
     const handleDragOver = (e)=>{
-        e.preventDefault()
+        e.preventDefault();
+        console.log("Arrastando sobre a coluna...");
     };
 
     const handleAddTask = (e)=>{
@@ -32,16 +40,35 @@ const TaskBoard = ({tasks, addTask, deleteTask, updateTaskStatus, openTaskDetail
         }
     }
 
+    const arrStatus = ["not_started", "in_progress", "completed"]
+
+    const getColumnClass = (status) => {
+        switch(status){
+            case "not_started":
+                return "column-not-started";
+            case "in_progress":
+                return "column-in-progress";
+            case "completed":
+                return "column-completed";
+            default:
+                return "";
+        }
+    }
+
+
+
     return (
-        <div className="task-board">
+        <div className="main">
             <form onSubmit={handleAddTask} className="task-form">
                 <input type="text" value={newTask} onChange={(e)=> setNewTask(e.target.value)} placeholder="Nova Tarefa" />
                 <textarea value={description} onChange={(e)=> setDescription(e.target.value)} placeholder="Descrição" />
                 <button type="submit">Adicionar</button>
             </form>
+        
+        <div className="task-board">
 
             <div className="task-columns">
-                {["not_started", "in_progress", "completed"].map((status)=> (
+                {arrStatus.map((status)=> (
 
                     <div
                         key={status}
@@ -49,7 +76,7 @@ const TaskBoard = ({tasks, addTask, deleteTask, updateTaskStatus, openTaskDetail
                         onDrop={(e) => handleDrop(e, status)}
                         onDragOver={handleDragOver}
                     >
-                        <h2>
+                        <h2 className={getColumnClass(status)}>
                             { status === "not_started" ? "Not Started" : status === "in_progress" ? "In Progress" : "Completed" }
                         </h2>
 
@@ -65,6 +92,7 @@ const TaskBoard = ({tasks, addTask, deleteTask, updateTaskStatus, openTaskDetail
                 ))}
 
             </div>
+        </div>
         </div>
     )
 

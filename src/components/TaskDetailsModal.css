@@ -107,7 +107,9 @@
 .modal-content  h2 {
     font-size: 1.9rem;
 
-    margin: 10px 0px 0px 0px;
+    margin: 10px 0px;
+
+    word-wrap: break-word;
 }
 
 .descriptionModalDiv {
@@ -117,7 +119,7 @@
 
 .descriptionModalDiv .p_description {
     color:#ffffff46 ;
-    margin: 0px;
+    margin: 0px 0px 12px 0px;
 }
 
 
@@ -171,6 +173,18 @@
     background-color: red;
     border: 2px solid #42424269;
    
+}
+
+
+.not_started {
+    background-color: rgb(218, 82, 58);
+}
+.in_progress {
+    background-color: rgb(97, 150, 230);
+}
+
+.completed {
+    background-color: rgb(74, 156, 74);
 }
 
 .p_date {

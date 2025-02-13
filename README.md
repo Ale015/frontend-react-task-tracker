@@ -1,70 +1,62 @@
-# Getting Started with Create React App
+# Task Manager
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Descrição
+O Task Manager é uma aplicação web que permite gerenciar tarefas com funcionalidades como adicionar, excluir e alterar o status das tarefas. A aplicação é baseada em React para o frontend, com um backend de autoria própria que manipula dados em um banco de dados (SQL Server) via API.
 
-In the project directory, you can run:
+## Funcionalidades
+### Adicionar Tarefa: 
+Adicionar tarefas com título e descrição.
+### Editar Tarefa:
+Visualizar e editar detalhes da tarefa.
+### Excluir Tarefa:
+Excluir tarefas individualmente.
+### Alterar Status:
+Alterar o status da tarefa para ***"Not Started"**, **"In Progress"** ou **"Completed"**, arrastando e soltando pelas colunas.
 
-### `npm start`
+## Tecnologias
+- **Frontend**: React, CSS
+- **Backend**: Node.js, Express
+- **Banco de Dados**: SQL Server
+- **Ferramentas Adicionais**: Axios para chamadas HTTP
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Estrutura do Projeto
+O frontend é construído com React e segue uma estrutura simples:
 
-### `npm test`
+### src/components/: 
+Componentes React, como TaskBoard, TaskCard, TaskDetailsModal.
+### src/App.js: 
+Componente principal que gerencia as tarefas e interage com o backend.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+O backend é construído com Node.js e Express e está disponível nos meus repositórios públicos: [API Task Tracker](https://github.com/Ale015/javascript_task_tracker)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+API: A API fornece endpoints para manipular as tarefas (CRUD).
+Banco de Dados: Utiliza SQL Server para armazenar as tarefas.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Como executar:
+1. Clonar o repositório e instalar suas dependências:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+cd frontend
+npm install
+``` 
 
-### `npm run eject`
+2. Executar o Back=end da maneira que preferir, configurando as variáveis de ambiente e o banco de dados;
+2. Executar o frontend
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```
+npm start
+``` 
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+O aplicativo estará disponível em http://localhost:3000.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Este foi um projeto experimental para treinar skills na área de desenvolvimento. Caso queira contribuir ou realizar um fork para melhorar o protótipo sinta-se à vontade.
 
-## Learn More
+## Capturas de Tela
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![Tela Principal](./imgs_repo/home.png)
+![Tarefa em Foco](./imgs_repo/FocusedModal.png)

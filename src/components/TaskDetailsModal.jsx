@@ -6,6 +6,23 @@ import {ReactComponent as EditIcon} from "../assets_icons/edit.svg"
 const TaskDetailsModal = ({task, onClose}) => {
   if(!task) return null;
 
+
+  let statusFormatted = "";
+
+  if(task.status === "not_started"){
+      statusFormatted = "Not Started"
+  } else if (task.status === "in_progress"){
+      statusFormatted = "In Progress"
+  } else {
+      statusFormatted = "Completed"
+  }
+
+  const cardStatusClass = task.status === "not_started" 
+    ? "not_started"
+    : task.status === "in_progress"
+    ? "in_progress"
+    : "completed";
+
   return (
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-box" onClick={(e)=> e.stopPropagation()}>
@@ -18,7 +35,7 @@ const TaskDetailsModal = ({task, onClose}) => {
             {task.title}
           </h2>
 
-          <p className="p_task_status">{task.status}</p>
+          <p className={`p_task_status ${cardStatusClass}`}>{statusFormatted}</p>
 
           {task.description && (
             <div className="descriptionModalDiv">
